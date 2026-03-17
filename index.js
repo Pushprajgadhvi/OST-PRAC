@@ -1,26 +1,14 @@
 const express = require("express");
-const axios = require("axios");
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
-res.send("Hello Open Source Lab");
+setTimeout(() => {
+res.send("Slow Server - Port 3000");
+}, 5000);
 });
 
-// JSON Route
-app.get("/api/info", (req, res) => {
-res.json({
-name: "Pushpraj gadhvi ec2",
-subject: "Open Source Technology",
-semester: "BE 6th Sem"
-});
+app.listen(PORT, () => {
+console.log(`Server running on port ${PORT}`);
 });
 
-// Axios Demo Route
-app.get("/api/user", async (req, res) => {
-const response = await axios.get("https://jsonplaceholder.typicode.com/users/1");
-res.json(response.data);
-});
-
-app.listen(3000, () => {
-console.log("Server running at http://localhost:3000");
-});
