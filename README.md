@@ -1,2 +1,1 @@
-# OST-PRAC
-OST PRAC REPO 
+"# OST Git Assignment Project" 
